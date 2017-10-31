@@ -10,5 +10,8 @@
 #define L298N_IN4       GPIO_Pin_9
 
 
+
+extern void motor_init(void);
+
 #endif
 

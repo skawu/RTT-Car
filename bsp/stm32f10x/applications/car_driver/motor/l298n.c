@@ -3,7 +3,7 @@
  * 负 责 人   : skawu
  * 创建日期   : 2017年10月31日
  * 文件描述   : L298N电机驱动
- * 版权说明   : Copyright (c) 2016-2017   深圳方糖电子有限公司
+ * 版权说明   : Copyright (c) 2016-2017   
  * 其    他   : 
                 使用TIM2输出PWM
  * 修改日志   : 
@@ -12,7 +12,7 @@
 #include "l298n.h"
 
 
-void l298n_tim2_gpio_init(void)
+static void l298n_tim2_gpio_init(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
     
@@ -26,7 +26,7 @@ void l298n_tim2_gpio_init(void)
 }
 
 
-void l298n_tim2_init(void)
+static void l298n_tim2_init(void)
 {
     TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
 
@@ -56,5 +56,30 @@ void l298n_tim2_init(void)
     TIM_ITConfig(TIM2, TIM_IT_CC1, ENABLE); //开定时器中断
     TIM_CtrlPWMOutputs(TIM2, ENABLE);       //使能定时器PWM输出
     TIM_Cmd(TIM2, ENABLE);                  //使能定时器2
+}
+
+static void motor_gpio_init(void)
+{
+    GPIO_InitTypeDef GPIO_InitStructure;
+
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Pin = L298N_IN1 | L298N_IN2 | L298N_IN3 | L298N_IN4;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+    GPIO_SetBits(L298N_GPIO, L298N_IN1);
+    GPIO_SetBits(L298N_GPIO, L298N_IN2);
+    GPIO_SetBits(L298N_GPIO, L298N_IN3);
+    GPIO_SetBits(L298N_GPIO, L298N_IN4);
+}
+
+void motor_init(void)
+{
+    motor_gpio_init();
+    l298n_tim2_gpio_init();
+    l298n_tim2_init();
 }
 
