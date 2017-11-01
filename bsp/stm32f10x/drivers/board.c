@@ -20,6 +20,7 @@
 #include "stm32f10x_fsmc.h"
 #include "board.h"
 #include "usart.h"
+#include "l298n.h"
 
 #ifdef  RT_USING_COMPONENTS_INIT
 #include <components.h>
@@ -170,6 +171,7 @@ void rt_hw_board_init(void)
 #ifdef RT_USING_COMPONENTS_INIT
 	rt_components_board_init();
 #endif
+	motor_init();
 }
 
 /*@}*/

@@ -172,6 +172,12 @@
   </configuration>
   <group>
     <name>Applications</name>
+    <group>
+      <name>car_driver</name>
+      <file>
+        <name>$PROJ_DIR$\applications\car_driver\motor\l298n.c</name>
+      </file>
+    </group>
     <file>
       <name>$PROJ_DIR$\applications\application.c</name>
     </file>

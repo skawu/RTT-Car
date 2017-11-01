@@ -54,7 +54,7 @@ static void l298n_tim2_init(void)
 
     TIM_ARRPreloadConfig(TIM2, ENABLE);     //使能TIM2在ARR上的预装载寄存器
     TIM_ITConfig(TIM2, TIM_IT_CC1, ENABLE); //开定时器中断
-    TIM_CtrlPWMOutputs(TIM2, ENABLE);       //使能定时器PWM输出
+//    TIM_CtrlPWMOutputs(TIM2, ENABLE);       //使能定时器PWM输出,参数1不适用与timer2
     TIM_Cmd(TIM2, ENABLE);                  //使能定时器2
 }
 
