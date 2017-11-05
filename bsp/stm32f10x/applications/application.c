@@ -41,6 +41,8 @@
 #endif
 
 #include "led.h"
+#include "l298n.h"
+
 
 ALIGN(RT_ALIGN_SIZE)
 static rt_uint8_t led_stack[ 512 ];
@@ -65,6 +67,15 @@ static void led_thread_entry(void *parameter)
 #endif
 		rt_hw_led_off(0);
 		rt_thread_delay(RT_TICK_PER_SECOND / 2);
+
+		if ((count % 10) < 5)
+		{
+			motor_pulse_update(150);
+		}
+		else
+		{
+			motor_pulse_update(200);
+		}
 	}
 }
 
