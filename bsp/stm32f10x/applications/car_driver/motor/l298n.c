@@ -44,9 +44,9 @@ static void l298n_tim2_init(void)
 	TIM_OC2Init(TIM2, &TIM_OCInitStructure);
 	TIM_OC2PreloadConfig(TIM2, TIM_OCPreload_Enable); //使能2的预装载寄存器
 	TIM_OC3Init(TIM2, &TIM_OCInitStructure);
-	TIM_OC3PreloadConfig(TIM2, TIM_OCPreload_Enable); //使能1的预装载寄存器
+	TIM_OC3PreloadConfig(TIM2, TIM_OCPreload_Enable); //使能3的预装载寄存器
 	TIM_OC4Init(TIM2, &TIM_OCInitStructure);
-	TIM_OC4PreloadConfig(TIM2, TIM_OCPreload_Enable); //使能2的预装载寄存器
+	TIM_OC4PreloadConfig(TIM2, TIM_OCPreload_Enable); //使能4的预装载寄存器
 	TIM_ARRPreloadConfig(TIM2, ENABLE);     //使能TIM2在ARR上的预装载寄存器
 	TIM_ITConfig(TIM2, TIM_IT_CC1, ENABLE); //开定时器中断
 //    TIM_CtrlPWMOutputs(TIM2, ENABLE);       //使能定时器PWM输出,参数1不适用与timer2
