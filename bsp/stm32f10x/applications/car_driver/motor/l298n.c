@@ -59,10 +59,9 @@ static void motor_gpio_init(void)
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 	GPIO_InitStructure.GPIO_Pin = L298N_IN1 | L298N_IN2 | L298N_IN3 | L298N_IN4 |
-		L298N_IN5 | L298N_IN6 | L298N_IN7 | L298N_IN8;
+	                              L298N_IN5 | L298N_IN6 | L298N_IN7 | L298N_IN8;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
-	
 	GPIO_SetBits(L298N_GPIO, L298N_IN1);
 	GPIO_ResetBits(L298N_GPIO, L298N_IN2);
 	GPIO_SetBits(L298N_GPIO, L298N_IN3);
@@ -91,7 +90,6 @@ int  motor_pulse_update(uint16_t value)
 	TIM2->CCR2 = value;
 	TIM2->CCR3 = value;
 	TIM2->CCR4 = value;
-
 	return 0;
 }
 

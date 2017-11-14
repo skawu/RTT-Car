@@ -42,6 +42,7 @@
 
 #include "led.h"
 #include "l298n.h"
+#include "esp8266.h"
 
 
 ALIGN(RT_ALIGN_SIZE)
@@ -76,6 +77,8 @@ static void led_thread_entry(void *parameter)
 		{
 			motor_pulse_update(200);
 		}
+
+		esp8266_test();
 	}
 }
 

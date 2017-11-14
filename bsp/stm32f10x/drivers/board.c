@@ -21,6 +21,7 @@
 #include "board.h"
 #include "usart.h"
 #include "l298n.h"
+#include "esp8266.h"
 
 #ifdef  RT_USING_COMPONENTS_INIT
 #include <components.h>
@@ -172,6 +173,7 @@ void rt_hw_board_init(void)
 	rt_components_board_init();
 #endif
 	motor_init();
+	esp8266_init();
 }
 
 /*@}*/

@@ -316,6 +316,7 @@
           <state>$PROJ_DIR$\..\..\components\finsh</state>
           <state>$PROJ_DIR$\libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x</state>
           <state>$PROJ_DIR$\applications\car_driver\motor</state>
+          <state>$PROJ_DIR$\applications\car_driver\esp8266</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1917,6 +1918,9 @@
     <name>Applications</name>
     <group>
       <name>car_driver</name>
+      <file>
+        <name>$PROJ_DIR$\applications\car_driver\esp8266\esp8266.c</name>
+      </file>
       <file>
         <name>$PROJ_DIR$\applications\car_driver\motor\l298n.c</name>
       </file>

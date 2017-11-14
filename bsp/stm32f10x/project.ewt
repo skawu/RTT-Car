@@ -175,6 +175,9 @@
     <group>
       <name>car_driver</name>
       <file>
+        <name>$PROJ_DIR$\applications\car_driver\esp8266\esp8266.c</name>
+      </file>
+      <file>
         <name>$PROJ_DIR$\applications\car_driver\motor\l298n.c</name>
       </file>
     </group>
